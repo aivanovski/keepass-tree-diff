@@ -72,3 +72,36 @@ jobs:
         with:
           name: keepass-tree-diff-${{env.VERSION}}.jar
           path: ./keepass-tree-diff/build/libs/keepass-tree-diff-${{env.VERSION}}.jar
+
+  create-coverage-badge:
+    needs: [ build-jar ]
+    name: 'Create coverage badge'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get coverage.csv
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage.csv
+          path: artifacts
+
+      - name: Create JaCoCo Badge
+        id: jacoco
+        uses: cicirello/jacoco-badge-generator@v2.8.1
+        with:
+          jacoco-csv-file: artifacts/coverage.csv
+          badges-directory: .github/badges
+          generate-coverage-badge: true
+
+      - name: Log coverage percentage
+        run: |
+          echo "coverage = ${{steps.jacoco.outputs.coverage}}"
+
+      - name: Commit and push the badge (if it changed)
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: 'Commit coverage badge'
+          add: '*.svg'
