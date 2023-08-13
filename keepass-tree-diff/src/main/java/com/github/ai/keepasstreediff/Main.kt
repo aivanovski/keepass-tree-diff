@@ -1,4 +1,3 @@
 package com.github.ai.keepasstreediff
 
-class Main {
-}
+class Main
