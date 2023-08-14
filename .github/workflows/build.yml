@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: coverage.csv
-          path: build/reports/coverage/coverage.csv
+          path: keepass-tree-diff/build/reports/coverage/coverage.csv
 
   build-jar:
     name: 'Build jar'
@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: keepass-tree-diff-${{env.VERSION}}.jar
-          path: ./keepass-tree-diff/build/libs/keepass-tree-diff-${{env.VERSION}}.jar
+          path: keepass-tree-diff/build/libs/keepass-tree-diff-${{env.VERSION}}.jar
 
   create-coverage-badge:
     needs: [ build-jar ]
