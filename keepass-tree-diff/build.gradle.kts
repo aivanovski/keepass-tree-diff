@@ -25,7 +25,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-
 tasks.jacocoTestReport {
     reports {
         val coverageDir = File("$buildDir/reports/coverage")

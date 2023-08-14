@@ -7,6 +7,6 @@ class BasicTest {
 
     @Test
     fun test() {
-        (1 + 1) shouldBe 2
+        Main().add(1, 1) shouldBe 2
     }
 }
