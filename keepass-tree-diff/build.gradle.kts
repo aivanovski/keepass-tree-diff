@@ -7,9 +7,11 @@ plugins {
     jacoco
 }
 
+val appGroupId = "com.github.ai.keepasstreediff"
+val appArtifactId = "keepass-tree-diff"
 val appVersion = "0.1.0"
 
-group = "com.github.ai.keepasstreediff"
+group = appGroupId
 version = appVersion
 
 tasks.withType<KotlinCompile> {
@@ -20,6 +22,7 @@ tasks.withType<KotlinCompile> {
 
 java {
     withSourcesJar()
+    withJavadocJar()
 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -49,4 +52,16 @@ dependencies {
     testImplementation("io.mockk:mockk:1.12.3")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = appGroupId
+            artifactId = appArtifactId
+            version = appVersion
+
+            from(components["java"])
+        }
+    }
 }
