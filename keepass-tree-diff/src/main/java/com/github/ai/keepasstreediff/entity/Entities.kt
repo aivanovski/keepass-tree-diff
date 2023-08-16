@@ -14,7 +14,7 @@ sealed interface TreeEntity : Entity {
 
 data class GroupEntity(
     override val uuid: UUID,
-    val fields: Map<String, FieldEntity>,
+    val fields: Map<String, FieldEntity>
 ) : TreeEntity {
 
     override val name: String = fields.getOrThrow(FIELD_TITLE).value
@@ -22,7 +22,7 @@ data class GroupEntity(
 
 data class EntryEntity(
     override val uuid: UUID,
-    val fields: Map<String, FieldEntity>,
+    val fields: Map<String, FieldEntity>
 ) : TreeEntity {
 
     override val name: String = fields.getOrThrow(FIELD_TITLE).value
@@ -36,5 +36,5 @@ data class FieldEntity(
 internal data class InternalFieldEntity(
     override val uuid: UUID,
     override val name: String,
-    val source: FieldEntity,
+    val source: FieldEntity
 ) : TreeEntity

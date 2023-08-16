@@ -8,7 +8,7 @@ import java.util.UUID
 
 internal fun GroupEntity.modify(
     uuid: UUID = this.uuid,
-    newFields: Map<String, String> = emptyMap(),
+    newFields: Map<String, String> = emptyMap()
 ): GroupEntity {
     val mergedFields = fields.toMutableMap()
 

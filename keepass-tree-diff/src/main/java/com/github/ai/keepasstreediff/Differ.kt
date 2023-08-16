@@ -8,6 +8,6 @@ interface Differ {
 
     fun diff(
         lhs: TreeNode,
-        rhs: TreeNode,
+        rhs: TreeNode
     ): List<DiffEvent<Entity>>
 }

@@ -54,12 +54,12 @@ internal object TestData {
 
     private fun newGroup(
         char: Char,
-        title: String = "Group $char",
+        title: String = "Group $char"
     ): GroupEntity {
         return GroupEntity(
             uuid = createUuidFrom(char - 'A'),
             fields = mapOf(
-                FIELD_TITLE to FieldEntity(FIELD_TITLE, title),
+                FIELD_TITLE to FieldEntity(FIELD_TITLE, title)
             )
         )
     }

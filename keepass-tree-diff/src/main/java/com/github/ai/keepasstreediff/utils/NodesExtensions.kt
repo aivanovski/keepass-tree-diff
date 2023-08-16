@@ -84,7 +84,7 @@ internal fun TreeNode.convertToMutablePathNodeTree(): MutablePathNode {
             is GroupEntity -> {
                 MutablePathNode(
                     path = path,
-                    entity = node.entity,
+                    entity = node.entity
                 )
             }
 
