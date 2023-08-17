@@ -1,10 +1,10 @@
-package com.github.ai.keepasstreediff
+package com.github.aivanovski.keepasstreediff
 
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.FieldEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.testUtils.createUuidFrom
-import com.github.ai.keepasstreediff.testUtils.modify
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.testUtils.createUuidFrom
+import com.github.aivanovski.keepasstreediff.testUtils.modify
 
 internal object TestData {
 

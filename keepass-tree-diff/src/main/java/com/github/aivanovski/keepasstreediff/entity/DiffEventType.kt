@@ -1,4 +1,4 @@
-package com.github.ai.keepasstreediff.entity
+package com.github.aivanovski.keepasstreediff.entity
 
 internal enum class DiffEventType {
     INSERT,

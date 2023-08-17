@@ -1,9 +1,9 @@
-package com.github.ai.keepasstreediff.testUtils
+package com.github.aivanovski.keepasstreediff.testUtils
 
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.FieldEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.utils.getOrThrow
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.utils.getOrThrow
 import java.util.UUID
 
 internal fun GroupEntity.modify(

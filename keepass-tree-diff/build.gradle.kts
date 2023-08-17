@@ -7,7 +7,7 @@ plugins {
     jacoco
 }
 
-val appGroupId = "com.github.ai.keepasstreediff"
+val appGroupId = "com.github.aivanovski.keepasstreediff"
 val appArtifactId = "keepass-tree-diff"
 val appVersion = "0.2.0"
 

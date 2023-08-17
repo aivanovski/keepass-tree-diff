@@ -1,16 +1,16 @@
-package com.github.ai.keepasstreediff
+package com.github.aivanovski.keepasstreediff
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.Entity
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.FieldEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.entity.InternalFieldEntity
-import com.github.ai.keepasstreediff.entity.TreeNode
-import com.github.ai.keepasstreediff.utils.Fields.FIELD_UUID
-import com.github.ai.keepasstreediff.utils.getEntity
-import com.github.ai.keepasstreediff.utils.toInternalFieldEntity
-import com.github.ai.keepasstreediff.utils.traverseWithParents
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.InternalFieldEntity
+import com.github.aivanovski.keepasstreediff.entity.TreeNode
+import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_UUID
+import com.github.aivanovski.keepasstreediff.utils.getEntity
+import com.github.aivanovski.keepasstreediff.utils.toInternalFieldEntity
+import com.github.aivanovski.keepasstreediff.utils.traverseWithParents
 import java.util.UUID
 
 abstract class BaseDiffer<NodeType : TreeNode, NodeKey> : Differ {

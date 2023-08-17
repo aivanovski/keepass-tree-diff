@@ -1,12 +1,12 @@
-package com.github.ai.keepasstreediff.testUtils
+package com.github.aivanovski.keepasstreediff.testUtils
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.DiffEventType
-import com.github.ai.keepasstreediff.entity.Entity
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.FieldEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.utils.getEntity
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.DiffEventType
+import com.github.aivanovski.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.utils.getEntity
 import java.util.UUID
 
 internal fun createUuidFrom(value: Any): UUID {

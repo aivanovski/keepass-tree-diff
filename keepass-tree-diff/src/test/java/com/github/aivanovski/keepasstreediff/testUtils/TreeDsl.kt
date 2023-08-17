@@ -1,9 +1,9 @@
-package com.github.ai.keepasstreediff.testUtils
+package com.github.aivanovski.keepasstreediff.testUtils
 
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.entity.MutableNode
-import com.github.ai.keepasstreediff.entity.TreeEntity
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.MutableNode
+import com.github.aivanovski.keepasstreediff.entity.TreeEntity
 
 internal object TreeDsl {
 

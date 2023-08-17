@@ -1,9 +1,9 @@
-package com.github.ai.keepasstreediff.testUtils
+package com.github.aivanovski.keepasstreediff.testUtils
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.DiffEventType
-import com.github.ai.keepasstreediff.entity.Entity
-import com.github.ai.keepasstreediff.utils.getType
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.DiffEventType
+import com.github.aivanovski.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.utils.getType
 import io.kotest.matchers.shouldBe
 import java.util.UUID
 
