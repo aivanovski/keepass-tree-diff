@@ -1,16 +1,16 @@
-package com.github.ai.keepasstreediff
+package com.github.aivanovski.keepasstreediff
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.Entity
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.entity.MutablePathNode
-import com.github.ai.keepasstreediff.entity.TreeEntity
-import com.github.ai.keepasstreediff.entity.TreeNode
-import com.github.ai.keepasstreediff.utils.convertToMutableNodeTree
-import com.github.ai.keepasstreediff.utils.convertToMutablePathNodeTree
-import com.github.ai.keepasstreediff.utils.getEntity
-import com.github.ai.keepasstreediff.utils.traversePathNode
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.MutablePathNode
+import com.github.aivanovski.keepasstreediff.entity.TreeEntity
+import com.github.aivanovski.keepasstreediff.entity.TreeNode
+import com.github.aivanovski.keepasstreediff.utils.convertToMutableNodeTree
+import com.github.aivanovski.keepasstreediff.utils.convertToMutablePathNodeTree
+import com.github.aivanovski.keepasstreediff.utils.getEntity
+import com.github.aivanovski.keepasstreediff.utils.traversePathNode
 import java.util.UUID
 
 class PathDiffer : BaseDiffer<MutablePathNode, String>() {

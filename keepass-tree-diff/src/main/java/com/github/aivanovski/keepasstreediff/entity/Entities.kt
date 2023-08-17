@@ -1,7 +1,7 @@
-package com.github.ai.keepasstreediff.entity
+package com.github.aivanovski.keepasstreediff.entity
 
-import com.github.ai.keepasstreediff.utils.Fields.FIELD_TITLE
-import com.github.ai.keepasstreediff.utils.getOrThrow
+import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_TITLE
+import com.github.aivanovski.keepasstreediff.utils.getOrThrow
 import java.util.UUID
 
 sealed interface Entity {

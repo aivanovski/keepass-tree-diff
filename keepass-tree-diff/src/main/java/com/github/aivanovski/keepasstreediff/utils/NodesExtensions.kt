@@ -1,10 +1,10 @@
-package com.github.ai.keepasstreediff.utils
+package com.github.aivanovski.keepasstreediff.utils
 
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.entity.MutableNode
-import com.github.ai.keepasstreediff.entity.MutablePathNode
-import com.github.ai.keepasstreediff.entity.TreeNode
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.MutableNode
+import com.github.aivanovski.keepasstreediff.entity.MutablePathNode
+import com.github.aivanovski.keepasstreediff.entity.TreeNode
 import java.util.LinkedList
 
 internal fun TreeNode.traverse(): List<TreeNode> {

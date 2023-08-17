@@ -1,11 +1,11 @@
-package com.github.ai.keepasstreediff
+package com.github.aivanovski.keepasstreediff
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.Entity
-import com.github.ai.keepasstreediff.entity.MutableNode
-import com.github.ai.keepasstreediff.entity.TreeNode
-import com.github.ai.keepasstreediff.utils.convertToMutableNodeTree
-import com.github.ai.keepasstreediff.utils.traverse
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.entity.MutableNode
+import com.github.aivanovski.keepasstreediff.entity.TreeNode
+import com.github.aivanovski.keepasstreediff.utils.convertToMutableNodeTree
+import com.github.aivanovski.keepasstreediff.utils.traverse
 import java.util.UUID
 
 class UuidDiffer : BaseDiffer<MutableNode, UUID>() {

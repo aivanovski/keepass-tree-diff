@@ -1,4 +1,4 @@
-package com.github.ai.keepasstreediff.utils
+package com.github.aivanovski.keepasstreediff.utils
 
 internal object Fields {
     const val FIELD_UUID = "UUID"

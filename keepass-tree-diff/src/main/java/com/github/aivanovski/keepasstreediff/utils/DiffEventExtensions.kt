@@ -1,8 +1,8 @@
-package com.github.ai.keepasstreediff.utils
+package com.github.aivanovski.keepasstreediff.utils
 
-import com.github.ai.keepasstreediff.entity.DiffEvent
-import com.github.ai.keepasstreediff.entity.DiffEventType
-import com.github.ai.keepasstreediff.entity.Entity
+import com.github.aivanovski.keepasstreediff.entity.DiffEvent
+import com.github.aivanovski.keepasstreediff.entity.DiffEventType
+import com.github.aivanovski.keepasstreediff.entity.Entity
 
 internal fun DiffEvent<*>.getType(): DiffEventType {
     return when (this) {

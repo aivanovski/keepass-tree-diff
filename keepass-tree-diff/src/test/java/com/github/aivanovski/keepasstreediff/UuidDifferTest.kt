@@ -1,22 +1,22 @@
-package com.github.ai.keepasstreediff
+package com.github.aivanovski.keepasstreediff
 
-import com.github.ai.keepasstreediff.TestData.CUSTOM_VALUE
-import com.github.ai.keepasstreediff.TestData.ENTRY_1
-import com.github.ai.keepasstreediff.TestData.ENTRY_1_COPY
-import com.github.ai.keepasstreediff.TestData.ENTRY_1_MODIFIED
-import com.github.ai.keepasstreediff.TestData.ENTRY_2
-import com.github.ai.keepasstreediff.TestData.FIELD_CUSTOM
-import com.github.ai.keepasstreediff.TestData.FIELD_TITLE
-import com.github.ai.keepasstreediff.TestData.FIELD_USERNAME
-import com.github.ai.keepasstreediff.TestData.GROUP_A
-import com.github.ai.keepasstreediff.TestData.GROUP_B
-import com.github.ai.keepasstreediff.TestData.GROUP_C
-import com.github.ai.keepasstreediff.TestData.ROOT
-import com.github.ai.keepasstreediff.testUtils.AssertionDsl.shouldBe
-import com.github.ai.keepasstreediff.testUtils.TreeDsl.tree
-import com.github.ai.keepasstreediff.testUtils.getField
-import com.github.ai.keepasstreediff.testUtils.modify
-import com.github.ai.keepasstreediff.testUtils.sortForAssertionNew
+import com.github.aivanovski.keepasstreediff.TestData.CUSTOM_VALUE
+import com.github.aivanovski.keepasstreediff.TestData.ENTRY_1
+import com.github.aivanovski.keepasstreediff.TestData.ENTRY_1_COPY
+import com.github.aivanovski.keepasstreediff.TestData.ENTRY_1_MODIFIED
+import com.github.aivanovski.keepasstreediff.TestData.ENTRY_2
+import com.github.aivanovski.keepasstreediff.TestData.FIELD_CUSTOM
+import com.github.aivanovski.keepasstreediff.TestData.FIELD_TITLE
+import com.github.aivanovski.keepasstreediff.TestData.FIELD_USERNAME
+import com.github.aivanovski.keepasstreediff.TestData.GROUP_A
+import com.github.aivanovski.keepasstreediff.TestData.GROUP_B
+import com.github.aivanovski.keepasstreediff.TestData.GROUP_C
+import com.github.aivanovski.keepasstreediff.TestData.ROOT
+import com.github.aivanovski.keepasstreediff.testUtils.AssertionDsl.shouldBe
+import com.github.aivanovski.keepasstreediff.testUtils.TreeDsl.tree
+import com.github.aivanovski.keepasstreediff.testUtils.getField
+import com.github.aivanovski.keepasstreediff.testUtils.modify
+import com.github.aivanovski.keepasstreediff.testUtils.sortForAssertionNew
 import org.junit.jupiter.api.Test
 
 class UuidDifferTest {

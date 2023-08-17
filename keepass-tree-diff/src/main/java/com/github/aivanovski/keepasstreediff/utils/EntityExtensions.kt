@@ -1,10 +1,10 @@
-package com.github.ai.keepasstreediff.utils
+package com.github.aivanovski.keepasstreediff.utils
 
-import com.github.ai.keepasstreediff.entity.EntryEntity
-import com.github.ai.keepasstreediff.entity.FieldEntity
-import com.github.ai.keepasstreediff.entity.GroupEntity
-import com.github.ai.keepasstreediff.entity.InternalFieldEntity
-import com.github.ai.keepasstreediff.utils.Fields.FIELD_UUID
+import com.github.aivanovski.keepasstreediff.entity.EntryEntity
+import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.InternalFieldEntity
+import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_UUID
 import java.util.UUID
 
 internal fun FieldEntity.toInternalFieldEntity(): InternalFieldEntity {
