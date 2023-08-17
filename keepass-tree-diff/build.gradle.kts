@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.9.0")
+    id("org.jetbrains.kotlin.jvm").version("1.8.22")
     id("java-library")
     id("maven-publish")
     jacoco
@@ -9,13 +9,15 @@ plugins {
 
 val appGroupId = "com.github.ai.keepasstreediff"
 val appArtifactId = "keepass-tree-diff"
-val appVersion = "0.1.0"
+val appVersion = "0.1.1"
 
 group = appGroupId
 version = appVersion
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
+        apiVersion = "1.5"
+        languageVersion = "1.5"
         jvmTarget = "11"
     }
 }
@@ -51,7 +53,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.2")
     testImplementation("io.mockk:mockk:1.12.3")
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22")
 }
 
 publishing {
