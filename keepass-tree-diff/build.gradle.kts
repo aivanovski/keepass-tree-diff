@@ -9,7 +9,7 @@ plugins {
 
 val appGroupId = "com.github.ai.keepasstreediff"
 val appArtifactId = "keepass-tree-diff"
-val appVersion = "0.1.1"
+val appVersion = "0.2.0"
 
 group = appGroupId
 version = appVersion
