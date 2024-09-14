@@ -1,10 +1,15 @@
 package com.github.aivanovski.keepasstreediff
 
+import com.github.aivanovski.keepasstreediff.entity.BinaryField
 import com.github.aivanovski.keepasstreediff.entity.EntryEntity
-import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.Field
 import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.StringField
+import com.github.aivanovski.keepasstreediff.entity.TimestampField
 import com.github.aivanovski.keepasstreediff.testUtils.createUuidFrom
 import com.github.aivanovski.keepasstreediff.testUtils.modify
+import java.security.MessageDigest
+import java.util.Base64
 
 internal object TestData {
 
@@ -16,6 +21,7 @@ internal object TestData {
     const val FIELD_CUSTOM = "custom-field"
 
     const val CUSTOM_VALUE = "custom-value"
+    private const val BASIC_BINARY_CONTENT = "Dummy binary content %s"
 
     val ROOT = newGroup('Z', "Root")
     val GROUP_A = newGroup('A')
@@ -43,6 +49,18 @@ internal object TestData {
     val ENTRY_5 = newEntry(5)
     val ENTRY_6 = newEntry(6)
 
+    val BINARY_1 = newBinary("1.txt")
+    val BINARY_2 = newBinary("2.txt")
+
+    val TIMESTAMP_1 = TimestampField(
+        name = "Expiration",
+        value = 123L
+    )
+    val TIMESTAMP_2 = TimestampField(
+        name = "Expiration",
+        value = 456L
+    )
+
     val ENTRY_1_COPY = ENTRY_1.modify(uuid = createUuidFrom(201))
     val ENTRY_2_COPY = ENTRY_2.modify(uuid = createUuidFrom(202))
 
@@ -59,21 +77,49 @@ internal object TestData {
         return GroupEntity(
             uuid = createUuidFrom(char - 'A'),
             fields = mapOf(
-                FIELD_TITLE to FieldEntity(FIELD_TITLE, title)
+                FIELD_TITLE to StringField(FIELD_TITLE, title)
             )
         )
     }
 
-    private fun newEntry(index: Int): EntryEntity {
+    fun newEntry(
+        index: Int,
+        binaries: List<BinaryField> = emptyList(),
+        custom: Map<String, Field<*>> = emptyMap()
+    ): EntryEntity {
+        val fields = mutableMapOf<String, Field<*>>(
+            FIELD_TITLE to StringField(FIELD_TITLE, "Title $index"),
+            FIELD_USERNAME to StringField(FIELD_USERNAME, "UserName $index"),
+            FIELD_PASSWORD to StringField(FIELD_PASSWORD, "Password $index"),
+            FIELD_URL to StringField(FIELD_URL, "URL $index"),
+            FIELD_NOTES to StringField(FIELD_NOTES, "Notes $index")
+        )
+
+        if (binaries.isNotEmpty()) {
+            for (binary in binaries) {
+                fields[binary.hash] = binary
+            }
+        }
+
+        fields.putAll(custom)
+
         return EntryEntity(
             uuid = createUuidFrom(index + 100),
-            fields = mapOf(
-                FIELD_TITLE to FieldEntity(FIELD_TITLE, "Title $index"),
-                FIELD_USERNAME to FieldEntity(FIELD_USERNAME, "UserName $index"),
-                FIELD_PASSWORD to FieldEntity(FIELD_PASSWORD, "Password $index"),
-                FIELD_URL to FieldEntity(FIELD_URL, "URL $index"),
-                FIELD_NOTES to FieldEntity(FIELD_NOTES, "Notes $index")
-            )
+            fields = fields
+        )
+    }
+
+    private fun newBinary(
+        name: String
+    ): BinaryField {
+        val content = BASIC_BINARY_CONTENT.format(name).toByteArray()
+        val digest = MessageDigest.getInstance("SHA-256")
+        val sha = digest.digest(content)
+
+        return BinaryField(
+            hash = Base64.getEncoder().encodeToString(sha),
+            name = name,
+            value = content
         )
     }
 }

@@ -3,10 +3,10 @@ package com.github.aivanovski.keepasstreediff
 import com.github.aivanovski.keepasstreediff.entity.DiffEvent
 import com.github.aivanovski.keepasstreediff.entity.Entity
 import com.github.aivanovski.keepasstreediff.entity.EntryEntity
-import com.github.aivanovski.keepasstreediff.entity.FieldEntity
 import com.github.aivanovski.keepasstreediff.entity.GroupEntity
 import com.github.aivanovski.keepasstreediff.entity.InternalFieldEntity
 import com.github.aivanovski.keepasstreediff.entity.TreeNode
+import com.github.aivanovski.keepasstreediff.entity.UUIDField
 import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_UUID
 import com.github.aivanovski.keepasstreediff.utils.getEntity
 import com.github.aivanovski.keepasstreediff.utils.toInternalFieldEntity
@@ -108,13 +108,13 @@ abstract class BaseDiffer<NodeType : TreeNode, NodeKey> : Differ {
                     DiffEvent.Update(
                         oldParentUuid = oldGroup.uuid,
                         newParentUuid = newGroup.uuid,
-                        oldEntity = FieldEntity(
+                        oldEntity = UUIDField(
                             name = FIELD_UUID,
-                            value = oldGroup.uuid.toString()
+                            value = oldGroup.uuid
                         ),
-                        newEntity = FieldEntity(
+                        newEntity = UUIDField(
                             name = FIELD_UUID,
-                            value = newGroup.uuid.toString()
+                            value = newGroup.uuid
                         )
                     )
                 )
@@ -177,13 +177,13 @@ abstract class BaseDiffer<NodeType : TreeNode, NodeKey> : Differ {
                     DiffEvent.Update(
                         oldParentUuid = oldEntry.uuid,
                         newParentUuid = newEntry.uuid,
-                        oldEntity = FieldEntity(
+                        oldEntity = UUIDField(
                             name = FIELD_UUID,
-                            value = oldEntry.uuid.toString()
+                            value = oldEntry.uuid
                         ),
-                        newEntity = FieldEntity(
+                        newEntity = UUIDField(
                             name = FIELD_UUID,
-                            value = newEntry.uuid.toString()
+                            value = newEntry.uuid
                         )
                     )
                 )

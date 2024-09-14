@@ -4,7 +4,7 @@ import com.github.aivanovski.keepasstreediff.entity.DiffEvent
 import com.github.aivanovski.keepasstreediff.entity.DiffEventType
 import com.github.aivanovski.keepasstreediff.entity.Entity
 import com.github.aivanovski.keepasstreediff.entity.EntryEntity
-import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.Field
 import com.github.aivanovski.keepasstreediff.entity.GroupEntity
 import com.github.aivanovski.keepasstreediff.utils.getEntity
 import java.util.UUID
@@ -16,7 +16,7 @@ internal fun createUuidFrom(value: Any): UUID {
 /**
  * Sort diff events by entity type, then by event type and then by name.
  * Firstly goes Update events, then Delete events and then Insert events for [GroupEntity].
- * Then events goes is the same order for [EntryEntity] and then for [FieldEntity].
+ * Then events goes is the same order for [EntryEntity] and then for [Field].
  *
  * Example:
  * 1. [DiffEvent.Update] with [GroupEntity]
@@ -27,11 +27,11 @@ internal fun createUuidFrom(value: Any): UUID {
  * 5. [DiffEvent.Delete] with [EntryEntity]
  * 6. [DiffEvent.Insert] with [EntryEntity]
  *
- * 7. [DiffEvent.Update] with [FieldEntity]
- * 8. [DiffEvent.Delete] with [FieldEntity]
- * 9. [DiffEvent.Insert] with [FieldEntity]
+ * 7. [DiffEvent.Update] with [Field]
+ * 8. [DiffEvent.Delete] with [Field]
+ * 9. [DiffEvent.Insert] with [Field]
  */
-internal fun List<DiffEvent<Entity>>.sortForAssertionNew(): List<DiffEvent<Entity>> {
+internal fun List<DiffEvent<Entity>>.sortForAssertions(): List<DiffEvent<Entity>> {
     val groupEvents = this.mapNotNull { event ->
         if (event.getEntity() is GroupEntity) event else null
     }
@@ -41,7 +41,7 @@ internal fun List<DiffEvent<Entity>>.sortForAssertionNew(): List<DiffEvent<Entit
     }
 
     val fieldEvents = this.mapNotNull { event ->
-        if (event.getEntity() is FieldEntity) event else null
+        if (event.getEntity() is Field<*>) event else null
     }
 
     val groupEventsSorted = groupEvents.splitByEventTypeNew()
