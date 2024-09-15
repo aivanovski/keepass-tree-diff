@@ -1,5 +1,7 @@
 package com.github.aivanovski.keepasstreediff
 
+import com.github.aivanovski.keepasstreediff.TestData.BINARY_1
+import com.github.aivanovski.keepasstreediff.TestData.BINARY_2
 import com.github.aivanovski.keepasstreediff.TestData.CUSTOM_VALUE
 import com.github.aivanovski.keepasstreediff.TestData.ENTRY_1
 import com.github.aivanovski.keepasstreediff.TestData.ENTRY_1_COPY
@@ -23,16 +25,22 @@ import com.github.aivanovski.keepasstreediff.TestData.GROUP_E
 import com.github.aivanovski.keepasstreediff.TestData.GROUP_ENTRY_1
 import com.github.aivanovski.keepasstreediff.TestData.GROUP_ENTRY_2
 import com.github.aivanovski.keepasstreediff.TestData.ROOT
+import com.github.aivanovski.keepasstreediff.TestData.TIMESTAMP_1
+import com.github.aivanovski.keepasstreediff.TestData.TIMESTAMP_2
+import com.github.aivanovski.keepasstreediff.TestData.newEntry
 import com.github.aivanovski.keepasstreediff.testUtils.AssertionDsl.shouldBe
 import com.github.aivanovski.keepasstreediff.testUtils.TreeDsl.tree
 import com.github.aivanovski.keepasstreediff.testUtils.createUuidFrom
 import com.github.aivanovski.keepasstreediff.testUtils.getField
 import com.github.aivanovski.keepasstreediff.testUtils.modify
-import com.github.aivanovski.keepasstreediff.testUtils.sortForAssertionNew
+import com.github.aivanovski.keepasstreediff.testUtils.sortForAssertions
+import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_CREATED
+import com.github.aivanovski.keepasstreediff.utils.Fields.FIELD_EXPIRATION
 import com.github.aivanovski.keepasstreediff.utils.getUuidField
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
-class PathDifferTest {
+internal class PathDifferTest {
 
     @Test
     fun `diff should detect insertions and deletions for groups and entries`() {
@@ -52,7 +60,7 @@ class PathDifferTest {
         }
 
         // act
-        val diff = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val diff = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         diff.shouldBe {
@@ -78,7 +86,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -99,7 +107,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -119,7 +127,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -151,7 +159,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -178,7 +186,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -204,7 +212,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -230,7 +238,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -254,7 +262,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -274,7 +282,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -298,7 +306,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -327,7 +335,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -359,7 +367,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -394,7 +402,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -424,7 +432,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -452,7 +460,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -478,7 +486,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -504,7 +512,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -543,7 +551,7 @@ class PathDifferTest {
         }
 
         // act
-        val diff = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val diff = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         diff.shouldBe {
@@ -591,7 +599,7 @@ class PathDifferTest {
         }
 
         // act
-        val events = PathDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -609,6 +617,232 @@ class PathDifferTest {
                 oldEntity = ENTRY_1.getField(FIELD_USERNAME),
                 newEntity = ENTRY_1_MODIFIED.getField(FIELD_USERNAME)
             )
+        }
+    }
+
+    @Test
+    fun `diff should detect binary insertion`() {
+        // arrange
+        val entry = newEntry(
+            index = 1
+        )
+        val modifiedEntry = newEntry(
+            index = 1,
+            binaries = listOf(
+                BINARY_1
+            )
+        )
+
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(1)
+
+            insert(parent = entry.uuid, BINARY_1)
+        }
+    }
+
+    @Test
+    fun `diff should detect binary deletion`() {
+        // arrange
+        val entry = newEntry(
+            index = 1,
+            binaries = listOf(
+                BINARY_1
+            )
+        )
+        val modifiedEntry = newEntry(
+            index = 1
+        )
+
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(1)
+
+            delete(parent = entry.uuid, BINARY_1)
+        }
+    }
+
+    @Test
+    fun `diff should detect binary insertion and deletion`() {
+        // arrange
+        val entry = newEntry(
+            index = 1,
+            binaries = listOf(
+                BINARY_1
+            )
+        )
+        val modifiedEntry = newEntry(
+            index = 1,
+            binaries = listOf(
+                BINARY_2
+            )
+        )
+
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(2)
+
+            delete(parent = entry.uuid, BINARY_1)
+            insert(parent = entry.uuid, BINARY_2)
+        }
+    }
+
+    @Test
+    fun `diff should detect timestamp equality`() {
+        // arrange
+        val lhs = tree(ROOT) {
+            entry(
+                newEntry(
+                    index = 1,
+                    custom = mapOf(
+                        FIELD_CREATED to TIMESTAMP_1
+                    )
+                )
+            )
+        }
+        val rhs = tree(ROOT) {
+            entry(
+                newEntry(
+                    index = 1,
+                    custom = mapOf(
+                        FIELD_CREATED to TIMESTAMP_1
+                    )
+                )
+            )
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs)
+
+        // assert
+        events.size shouldBe 0
+    }
+
+    @Test
+    fun `diff should detect timestamp update`() {
+        // arrange
+        val entry = newEntry(
+            index = 1,
+            custom = mapOf(
+                FIELD_CREATED to TIMESTAMP_1
+            )
+        )
+        val modifiedEntry = newEntry(
+            index = 1,
+            custom = mapOf(
+                FIELD_CREATED to TIMESTAMP_2
+            )
+        )
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(1)
+
+            update(
+                oldParent = entry.uuid,
+                newParent = entry.uuid,
+                oldEntity = TIMESTAMP_1,
+                newEntity = TIMESTAMP_2
+            )
+        }
+    }
+
+    @Test
+    fun `diff should detect timestamp insertion`() {
+        // arrange
+        val entry = newEntry(
+            index = 1
+        )
+        val modifiedEntry = newEntry(
+            index = 1,
+            custom = mapOf(
+                FIELD_EXPIRATION to TIMESTAMP_1
+            )
+        )
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(1)
+
+            insert(parent = entry.uuid, TIMESTAMP_1)
+        }
+    }
+
+    @Test
+    fun `diff should detect timestamp deletion`() {
+        // arrange
+        val entry = newEntry(
+            index = 1,
+            custom = mapOf(
+                FIELD_EXPIRATION to TIMESTAMP_1
+            )
+        )
+        val modifiedEntry = newEntry(
+            index = 1
+        )
+        val lhs = tree(ROOT) {
+            entry(entry)
+        }
+        val rhs = tree(ROOT) {
+            entry(modifiedEntry)
+        }
+
+        // act
+        val events = PathDiffer().diff(lhs, rhs).sortForAssertions()
+
+        // assert
+        events.shouldBe {
+            size(1)
+
+            delete(parent = entry.uuid, TIMESTAMP_1)
         }
     }
 }

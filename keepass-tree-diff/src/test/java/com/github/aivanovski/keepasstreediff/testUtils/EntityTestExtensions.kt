@@ -1,8 +1,9 @@
 package com.github.aivanovski.keepasstreediff.testUtils
 
 import com.github.aivanovski.keepasstreediff.entity.EntryEntity
-import com.github.aivanovski.keepasstreediff.entity.FieldEntity
+import com.github.aivanovski.keepasstreediff.entity.Field
 import com.github.aivanovski.keepasstreediff.entity.GroupEntity
+import com.github.aivanovski.keepasstreediff.entity.StringField
 import com.github.aivanovski.keepasstreediff.utils.getOrThrow
 import java.util.UUID
 
@@ -13,7 +14,7 @@ internal fun GroupEntity.modify(
     val mergedFields = fields.toMutableMap()
 
     for ((key, field) in newFields.entries) {
-        mergedFields[key] = FieldEntity(key, field)
+        mergedFields[key] = StringField(key, field)
     }
 
     return GroupEntity(
@@ -29,7 +30,7 @@ internal fun EntryEntity.modify(
     val mergedFields = fields.toMutableMap()
 
     for ((key, field) in newFields.entries) {
-        mergedFields[key] = FieldEntity(key, field)
+        mergedFields[key] = StringField(key, field)
     }
 
     return EntryEntity(
@@ -38,10 +39,10 @@ internal fun EntryEntity.modify(
     )
 }
 
-internal fun EntryEntity.getField(fieldName: String): FieldEntity {
+internal fun EntryEntity.getField(fieldName: String): Field<*> {
     return fields.getOrThrow(fieldName)
 }
 
-internal fun GroupEntity.getField(fieldName: String): FieldEntity {
+internal fun GroupEntity.getField(fieldName: String): Field<*> {
     return fields.getOrThrow(fieldName)
 }

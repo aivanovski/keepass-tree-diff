@@ -16,7 +16,7 @@ import com.github.aivanovski.keepasstreediff.testUtils.AssertionDsl.shouldBe
 import com.github.aivanovski.keepasstreediff.testUtils.TreeDsl.tree
 import com.github.aivanovski.keepasstreediff.testUtils.getField
 import com.github.aivanovski.keepasstreediff.testUtils.modify
-import com.github.aivanovski.keepasstreediff.testUtils.sortForAssertionNew
+import com.github.aivanovski.keepasstreediff.testUtils.sortForAssertions
 import org.junit.jupiter.api.Test
 
 class UuidDifferTest {
@@ -41,7 +41,7 @@ class UuidDifferTest {
         }
 
         // act
-        val diff = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val diff = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         diff.shouldBe {
@@ -67,7 +67,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -88,7 +88,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -108,7 +108,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -167,7 +167,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -193,7 +193,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -219,7 +219,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -243,7 +243,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -263,7 +263,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -383,7 +383,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -413,7 +413,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -441,7 +441,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -467,7 +467,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
@@ -493,7 +493,7 @@ class UuidDifferTest {
         }
 
         // act
-        val events = UuidDiffer().diff(lhs, rhs).sortForAssertionNew()
+        val events = UuidDiffer().diff(lhs, rhs).sortForAssertions()
 
         // assert
         events.shouldBe {
