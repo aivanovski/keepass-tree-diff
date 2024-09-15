@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.8.22")
+    id("org.jetbrains.kotlin.jvm").version("1.9.23")
     id("java-library")
     id("maven-publish")
     jacoco
 }
 
-val appGroupId = "com.github.aivanovski.keepasstreediff"
+val appGroupId = "com.github.aivanovski"
 val appArtifactId = "keepass-tree-diff"
 val appVersion = "0.3.0"
 
@@ -53,7 +53,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.2")
     testImplementation("io.mockk:mockk:1.12.3")
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23")
 }
 
 publishing {
