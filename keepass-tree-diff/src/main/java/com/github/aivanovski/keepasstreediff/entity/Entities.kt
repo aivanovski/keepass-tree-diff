@@ -25,7 +25,7 @@ data class GroupEntity(
 
 data class EntryEntity(
     override val uuid: UUID,
-    val fields: Map<String, Field<*>>,
+    val fields: Map<String, Field<*>>
 ) : TreeEntity {
     override val name: String = fields.getOrThrow(FIELD_TITLE).value.toString()
 }
