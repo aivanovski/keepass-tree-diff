@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.9.23")
+    id("org.jetbrains.kotlin.jvm").version("2.1.20")
     id("java-library")
     id("maven-publish")
     jacoco
@@ -16,8 +16,8 @@ version = appVersion
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        apiVersion = "1.5"
-        languageVersion = "1.5"
+        apiVersion = "1.8"
+        languageVersion = "1.8"
         jvmTarget = "11"
     }
 }
@@ -53,7 +53,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.2")
     testImplementation("io.mockk:mockk:1.12.3")
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20")
 }
 
 publishing {
