@@ -16,9 +16,9 @@ version = appVersion
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        apiVersion = "1.5"
-        languageVersion = "1.5"
-        jvmTarget = "11"
+        apiVersion = "1.8"
+        languageVersion = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -26,8 +26,8 @@ java {
     withSourcesJar()
     withJavadocJar()
 
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.jacocoTestReport {

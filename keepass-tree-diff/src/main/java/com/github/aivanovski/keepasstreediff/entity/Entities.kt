@@ -32,7 +32,8 @@ data class EntryEntity(
 
 data class StringField(
     override val name: String,
-    override val value: String
+    override val value: String,
+    val isProtected: Boolean = false
 ) : Field<String>
 
 data class TimestampField(
