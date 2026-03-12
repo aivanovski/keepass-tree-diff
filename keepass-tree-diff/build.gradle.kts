@@ -49,8 +49,8 @@ tasks.test {
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.5.2")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.2")
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.2")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.6")
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:6.1.6")
     testImplementation("io.mockk:mockk:1.12.3")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23")
