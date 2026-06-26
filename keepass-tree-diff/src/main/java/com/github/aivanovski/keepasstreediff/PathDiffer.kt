@@ -224,8 +224,7 @@ class PathDiffer : BaseDiffer<MutablePathNode, String>() {
         return result
     }
 
-    private fun List<MutablePathNode>.groupNodesByPath():
-        Map<String, List<MutablePathNode>> {
+    private fun List<MutablePathNode>.groupNodesByPath(): Map<String, List<MutablePathNode>> {
         val pathToNodesMap = HashMap<String, MutableList<MutablePathNode>>()
 
         for (node in this) {
@@ -238,8 +237,7 @@ class PathDiffer : BaseDiffer<MutablePathNode, String>() {
         return pathToNodesMap
     }
 
-    private fun List<DiffEvent<Entity>>.groupEventsByUid():
-        Map<UUID, List<DiffEvent<Entity>>> {
+    private fun List<DiffEvent<Entity>>.groupEventsByUid(): Map<UUID, List<DiffEvent<Entity>>> {
         val uidToEventsMap = HashMap<UUID, MutableList<DiffEvent<Entity>>>()
 
         for (event in this) {

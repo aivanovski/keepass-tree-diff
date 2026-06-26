@@ -9,9 +9,7 @@ import java.util.UUID
 
 internal object AssertionDsl {
 
-    fun List<DiffEvent<Entity>>.shouldBe(
-        content: DiffAssertionBuilder.() -> Unit
-    ) {
+    fun List<DiffEvent<Entity>>.shouldBe(content: DiffAssertionBuilder.() -> Unit) {
         DiffAssertionBuilder(this)
             .apply {
                 content.invoke(this)
