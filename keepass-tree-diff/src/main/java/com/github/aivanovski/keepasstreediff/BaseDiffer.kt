@@ -246,8 +246,7 @@ abstract class BaseDiffer<NodeType : TreeNode, NodeKey> : Differ {
         }
     }
 
-    private fun List<DiffEvent<Entity>>.substituteInternalEntities():
-        List<DiffEvent<Entity>> {
+    private fun List<DiffEvent<Entity>>.substituteInternalEntities(): List<DiffEvent<Entity>> {
         return this.map { event ->
             when {
                 event.isInternalFieldUpdate() -> event.toFieldEntityUpdate()

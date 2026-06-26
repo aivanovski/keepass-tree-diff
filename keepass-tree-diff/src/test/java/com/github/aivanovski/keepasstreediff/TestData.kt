@@ -109,9 +109,7 @@ internal object TestData {
         )
     }
 
-    private fun newBinary(
-        name: String
-    ): BinaryField {
+    private fun newBinary(name: String): BinaryField {
         val content = BASIC_BINARY_CONTENT.format(name).toByteArray()
         val digest = MessageDigest.getInstance("SHA-256")
         val sha = digest.digest(content)

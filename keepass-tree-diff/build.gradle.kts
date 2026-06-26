@@ -1,9 +1,11 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.9.23")
-    id("java-library")
-    id("maven-publish")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktlint)
+    `java-library`
+    `maven-publish`
     jacoco
 }
 
@@ -14,27 +16,28 @@ val appVersion = "0.6.0"
 group = appGroupId
 version = appVersion
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        apiVersion = "1.8"
-        languageVersion = "1.8"
-        jvmTarget = "17"
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
     withSourcesJar()
     withJavadocJar()
-
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.jacocoTestReport {
     reports {
-        val coverageDir = File("$buildDir/reports/coverage")
+        val coverageDir = layout.buildDirectory.dir("reports/coverage")
         csv.required.set(true)
-        csv.outputLocation.set(File(coverageDir, "coverage.csv"))
+        csv.outputLocation.set(coverageDir.map { it.file("coverage.csv") })
         html.required.set(true)
         html.outputLocation.set(coverageDir)
     }
@@ -48,12 +51,12 @@ tasks.test {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.5.2")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.2")
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.2")
-    testImplementation("io.mockk:mockk:1.12.3")
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.mockk)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23")
+    implementation(libs.kotlin.stdlib.jdk8)
 }
 
 publishing {
