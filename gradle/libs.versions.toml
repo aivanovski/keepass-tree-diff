@@ -2,7 +2,7 @@
 kotlin = "2.4.0"
 junit-jupiter = "5.13.2"
 kotest = "5.9.1"
-mockk = "1.14.4"
+mockk = "1.14.11"
 ktlint-gradle = "14.0.1"
 
 [libraries]
