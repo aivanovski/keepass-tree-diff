@@ -3,7 +3,7 @@ kotlin = "2.4.0"
 junit-jupiter = "6.1.0"
 kotest = "6.2.1"
 mockk = "1.14.11"
-ktlint-gradle = "14.0.1"
+ktlint-gradle = "14.2.0"
 
 [libraries]
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
